@@ -1,0 +1,15 @@
+/* Css variavbles */
+/* we will define them in root so that they can be useed in ddifferenet css files */
+:root{
+    --tile-size : 100px;
+    --light-tile : #F0D8B7;
+    --dark-tile : #B48764;
+    --bg-color : #202020;
+}
+
+/* defining a rule for smaller screens */
+@media all and (max-width : 450px) {
+    :root {
+        --tile-size : 50px;
+    }
+}
