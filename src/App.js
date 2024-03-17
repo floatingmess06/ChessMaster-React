@@ -2,11 +2,12 @@ import Board from './components/Boards/Board';
 import './App.css';
 import AppContext from './contexts/Context';
 import { useReducer } from 'react';
-import reducer from './reducer/reducer'
+import {reducer} from './reducer/reducer'
+import { initGameState } from './constant';
 
 function App() {
 
-  const [appState, dispatch] = useReducer(reducer, {})
+  const [appState, dispatch] = useReducer(reducer, initGameState)
   const providerState = {
     appState,
     dispatch
