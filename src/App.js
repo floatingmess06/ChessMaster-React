@@ -1,9 +1,9 @@
-import Board from './components/Boards/Board';
+import Board from './components/Board/Board';
 import './App.css';
 import AppContext from './contexts/Context';
 import { useReducer } from 'react';
 import {reducer} from './reducer/reducer'
-import { initGameState } from './constant';
+import { initGameState } from './constants';
 
 function App() {
 
