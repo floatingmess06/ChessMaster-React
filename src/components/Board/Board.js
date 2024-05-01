@@ -3,6 +3,7 @@ import Ranks from "./bits/Ranks";
 import "./Board.css";
 import Pieces from "../Pieces/Pieces";
 import { useAppContext } from "../../contexts/Context";
+import Popup from "../Popup/Popup";
 
 const Board = () => {
   const ranks = Array(8)
@@ -37,8 +38,8 @@ const Board = () => {
           ))
         )}
       </div>
-
       <Pieces/>
+      <Popup />
       <Files files={files} />
     </div>
 }
