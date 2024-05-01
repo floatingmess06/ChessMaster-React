@@ -81,22 +81,40 @@ const arbiter = {
 
     const enemyMoves = enemyPieces.reduce(
       (acc, p) =>
-        acc = [
+        (acc = [
           ...acc,
-          ...(p.piece.endsWith("p"))
+          ...(p.piece.endsWith("p")
             ? getPawnCaptures({
                 position: positionAfterMove,
                 prevPosition: position,
                 ...p,
               })
-            : this.getRegularMoves({ position: positionAfterMove, ...p }),
-        ],
+            : this.getRegularMoves({ position: positionAfterMove, ...p })),
+        ]),
       []
     );
     if (enemyMoves.some(([x, y]) => kingPos[0] === x && kingPos[1] === y))
       return true;
     return false;
   },
+
+  isStalemate: function (position, player, castleDirection) {
+    const isInCheck = this.isPlayerInCheck({
+      positionAfterMove: position,
+      player,
+    });
+    const pieces = getPieces(position, player);
+    const moves = pieces.reduce(
+      (acc, p) =>
+        (acc = [
+          ...acc,
+          ...this.getValidMoves({ position, castleDirection, ...p }),
+        ]),
+      []
+    );
+    return !isInCheck && moves.length === 0;
+  },
+
 };
 
 export default arbiter;

@@ -1,10 +1,10 @@
 import { Status } from '../../constants'
 import './Popup.css'
 import {useAppContext} from '../../contexts/Context'
-import PromotionBox from './PromotionBox/PromotionBox'
 import {closePopoup} from '../../reducer/actions/popup'
+import React from 'react'
 
-const Popup = () => {
+const Popup = ({children}) => {
     const {appState, dispatch} = useAppContext()
     if(appState.status === Status.ongoing)
         return null
@@ -14,7 +14,7 @@ const Popup = () => {
     }
 
     return <div className="popup">
-        <PromotionBox onClosePopoup={onClosePopoup}/>
+    {React.Children.toArray(children).map(child => React.cloneElement(child,{onClosePopoup}))}
     </div>
 }
 

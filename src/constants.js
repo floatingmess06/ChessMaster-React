@@ -5,6 +5,7 @@ export const Status = {
     'promoting': 'Promoting',
     'white': 'White wins',
     'black': 'Black wins',
+    'stalemate':'Game draws due to stalemate',
 }
 
 export const initGameState = {

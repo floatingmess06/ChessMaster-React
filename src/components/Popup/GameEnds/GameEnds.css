@@ -1,0 +1,49 @@
+.promotion-choices{
+    height: 12.5%;
+}
+
+.promotion-choices .piece{
+    height: 100%;
+    width: 25%;
+    border: 1px solid var(--dark-tile);
+}
+
+.promotion-choices .piece:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 0 5px var(--dark-tile) inset;
+}
+
+.promotion-choices :is(.wq,.bq){
+    left: 0%;
+}
+
+.promotion-choices :is(.wr,.br){
+    left: 25%;
+}
+
+.promotion-choices :is(.wn,.bn){
+    left: 50%;
+}
+
+.promotion-choices :is(.wb,.bb){
+    left: 75%;
+}
+
+.wins{
+    height: var(--tile-size);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.wins.White{background-image: url('../../../../public/images/pieces/wK.svg');}
+.wins.Black{background-image: url('../../../../public/images/pieces/bK.svg');}
+
+
+.draws{
+    height: var(--tile-size);
+    background-size: contain;
+    background-repeat: no-repeat, no-repeat;
+    background-position: 35% center,65% center;
+    background-image: url('../../../../public/images/pieces/wK.svg'),url('../../../../public/images/pieces/bK.svg');
+}
