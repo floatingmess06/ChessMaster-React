@@ -60,6 +60,26 @@ export const reducer = (state, action) => {
         status: Status.stalemate,
       };
     }
+    case actionTypes.INSUFFICIENT_MATERIAL: {
+      return {
+        ...state,
+        status: Status.insufficient,
+      };
+    }
+
+    case actionTypes.WIN: {
+      let winner = action.payload;
+      return {
+        ...state,
+        status: winner === "w" ? Status.white : Status.black,
+      };
+    }
+
+    case actionTypes.NEW_GAME: {
+      return {
+        ...action.payload,
+      };
+    }
 
     default:
       return state;
