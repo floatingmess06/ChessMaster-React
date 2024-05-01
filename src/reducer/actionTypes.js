@@ -8,5 +8,6 @@ export const actionTypes = {
     "CAN_CASTLE" : "CAN_CASTLE",
     "STALEMATE": "STALEMATE",
     "INSUFFICIENT_MATERIAL":"INSUFFICIENT_MATERIAL",
-    "WIN":"WIN"
+    "WIN":"WIN",
+    "TAKE_BACK":"TAKE_BACK"
 }

@@ -1,6 +1,11 @@
+import { useAppContext } from "../../../contexts/Context"
+import { takeBack } from "../../../reducer/actions/move"
+
 const TakeBack = ( ) => {
+
+    const {dispatch} = useAppContext()
     return <div className="takeBack">
-        Takeback
+        <button onClick={()=> dispatch(takeBack())}>Take Back</button>
     </div>
 }
 

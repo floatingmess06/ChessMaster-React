@@ -19,3 +19,9 @@ export const clearCandidates = () => {
         type: actionTypes.CLEAR_CANDIDATE_MOVES,
     }
 }
+
+export const takeBack = () => {
+    return {
+        type: actionTypes.TAKE_BACK,
+    }
+}
