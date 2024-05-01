@@ -58,3 +58,40 @@ export const findPieceCoords = (position, type) => {
 
   return results;
 };
+
+
+export const getNewMoveNotation = ({piece,rank,file,x,y,position,promotesTo}) => {
+    let note = ''
+
+    rank = Number(rank)
+    file = Number(file)
+
+    if(piece[1]==='k' && Math.abs(file-y)===2){
+        if(file>y){
+            return'0-0'
+        }else{
+            return '0-0-0'
+        }
+    }
+
+    if(piece[1]!=='p'){
+        note += piece[1].toUpperCase()
+        if(position[x][y]){
+            note+='x'
+        }
+    }
+
+    //for pawn
+    else if(rank!==x && file !==y){
+        note+=getCharacter(file+1)+'x'
+    }
+
+    // destination
+    note += getCharacter(y+1)+(x+1)
+
+    // promotion
+    if(promotesTo)
+    note+='='+promotesTo.toUpperCase()
+
+    return note
+}

@@ -3,12 +3,14 @@ import { actionTypes } from "./actionTypes";
 export const reducer = (state, action) => {
   switch (action.type) {
     case actionTypes.NEW_MOVE: {
-      let { positions, turn } = state;
+      let { positions,movesList, turn } = state;
       turn = turn === "w" ? "b" : "w";
 
       positions = [...positions, action.payload.newPosition];
+      movesList = [...movesList, action.payload.newMove];
       return {
         ...state,
+        movesList,
         positions,
         turn,
       };

@@ -1,5 +1,5 @@
 import { useAppContext } from "../../../contexts/Context";
-import { copyPosition } from "../../../helper";
+import { copyPosition, getNewMoveNotation } from "../../../helper";
 import { clearCandidates, makeNewMove } from "../../../reducer/actions/move";
 import "./PromotionBox.css";
 
@@ -35,7 +35,15 @@ const PromotionBox = ({onClosePopoup}) => {
     newPosition[promotionSquare.x][promotionSquare.y] = color + option;
 
     dispatch(clearCandidates());
-    dispatch(makeNewMove({ newPosition }));
+
+
+    const newMove = getNewMoveNotation({
+      ...promotionSquare,
+      piece:color+'p',
+      promotesTo:option,
+      position:appState.positions[appState.positions.length-1]
+    })
+    dispatch(makeNewMove({ newPosition ,newMove}));
   };
 
   return (
